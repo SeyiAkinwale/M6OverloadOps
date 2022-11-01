@@ -6,7 +6,8 @@
 //Weight class declaration
 class Weight {
 private:
-
+	int pound;
+	double ounce;
 
 public:
 

@@ -15,8 +15,10 @@ public:
 
 	int getPounds();
 	int getOunces();
+	int getWeight(); //total weight in ounces
 	//setPounds();
 	//setOunces();
+	//setWeight();
 
 };
 

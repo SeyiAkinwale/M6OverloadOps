@@ -17,7 +17,7 @@ int main()
 	cout << " " << leftWeight.getOunces();
 	cout << endl << rightWeight.getPounds();
 	cout << " " << rightWeight.getOunces();
-
+	cout << endl << rightWeight.getWeight();
 
 
 	return 0;

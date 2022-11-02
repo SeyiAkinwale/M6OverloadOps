@@ -4,6 +4,8 @@
 #include <cmath>
 using namespace std;
 
+const int MULTIPLIER = 16;// ounces in a pound
+
 //Default Constructor initializes weight/ounce
 Weight::Weight()
 {
@@ -27,4 +29,10 @@ int Weight::getPounds()
 int Weight::getOunces()
 {
 	return ounce;
+}
+
+//sum of pound variable in ounces and ounce
+int Weight::getWeight()
+{
+	return pound * MULTIPLIER + ounce;
 }

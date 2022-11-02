@@ -18,7 +18,7 @@ public:
 	int getWeight(); //total weight in ounces
 	void setPounds(int);
 	void setOunces(double);
-	//setWeight
+	void setWeight(int, double);
 
 };
 

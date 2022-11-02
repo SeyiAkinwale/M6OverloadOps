@@ -46,3 +46,9 @@ void Weight::setOunces(double oz)
 {
 	ounce = oz;
 }
+
+void Weight::setWeight(int lbs, double oz)
+{
+	pound = lbs;
+	ounce = oz;
+}

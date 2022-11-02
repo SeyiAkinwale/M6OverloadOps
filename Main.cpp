@@ -12,7 +12,10 @@ using namespace std;
 int main()
 {
 	Weight leftWeight;
-	Weight rightWeight(2,2);
+	Weight rightWeight(2, 2);
+	rightWeight.setPounds(10);
+	rightWeight.setOunces(10);
+	//rightWeight.setWeigt(100,10.5);
 	cout << endl << leftWeight.getPounds();
 	cout << " " << leftWeight.getOunces();
 	cout << endl << rightWeight.getPounds();

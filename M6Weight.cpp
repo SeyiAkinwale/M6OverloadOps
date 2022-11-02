@@ -36,3 +36,13 @@ int Weight::getWeight()
 {
 	return pound * MULTIPLIER + ounce;
 }
+
+void Weight::setPounds(int lbs)
+{
+	pound = lbs;
+}
+
+void Weight::setOunces(double oz)
+{
+	ounce = oz;
+}

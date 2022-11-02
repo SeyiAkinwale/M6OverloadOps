@@ -10,7 +10,13 @@ private:
 	double ounce;
 
 public:
+	Weight();
+	Weight(int, int);
 
+	int getPounds();
+	int getOunces();
+	//setPounds();
+	//setOunces();
 
 };
 

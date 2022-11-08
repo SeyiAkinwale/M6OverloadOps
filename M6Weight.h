@@ -8,6 +8,8 @@ class Weight {
 private:
 	int pound;
 	double ounce;
+	//Helper function
+	void fixWeight();
 
 public:
 	Weight();

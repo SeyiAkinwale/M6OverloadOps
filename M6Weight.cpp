@@ -4,7 +4,7 @@
 #include <cmath>
 using namespace std;
 
-const int MULTIPLIER = 16;// ounces in a pound
+const int OZ_IN_LB  = 16;// ounces in a pound
 
 //Default Constructor initializes weight/ounce
 Weight::Weight()
@@ -14,10 +14,8 @@ Weight::Weight()
 }
 
 //Constructor with two arguments
-Weight::Weight(int lbs, int oz)
+Weight::Weight(int lbs, int oz):pound(lbs), ounce(oz)
 {
-	pound = lbs;
-	ounce = oz;
 }
 
 // returns value of pound
@@ -25,6 +23,7 @@ int Weight::getPounds()
 {
 	return pound;
 }
+
 //returns value of ounce
 int Weight::getOunces()
 {
@@ -34,7 +33,7 @@ int Weight::getOunces()
 //sum of pound variable in ounces and ounce
 int Weight::getWeight()
 {
-	return pound * MULTIPLIER + ounce;
+	return pound * OZ_IN_LB + ounce;
 }
 
 void Weight::setPounds(int lbs)
@@ -51,4 +50,25 @@ void Weight::setWeight(int lbs, double oz)
 {
 	pound = lbs;
 	ounce = oz;
+}
+
+//Helper fucntion to fix Weight
+void Weight::fixWeight()
+{	//If they are negative, convert them to positive
+	pound = abs(pound);
+	ounce = abs(ounce);
+
+	while (ounce > OZ_IN_LB)
+	{
+		if ((ounce - OZ_IN_LB) < OZ_IN_LB)
+		{
+			double overage = ounce - OZ_IN_LB;
+			ounce = overage;
+		}
+		else
+		{
+			ounce -=OZ_IN_LB;
+		}
+		pound++;
+	}
 }

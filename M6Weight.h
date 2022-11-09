@@ -13,11 +13,11 @@ private:
 
 public:
 	Weight();
-	Weight(int, int);
+	Weight(int, double);
 
 	int getPounds();
-	int getOunces();
-	int getWeight(); //total weight in ounces
+	double getOunces();
+	double getWeight(); //total weight in ounces
 	void setPounds(int);
 	void setOunces(double);
 	void setWeight(int, double);

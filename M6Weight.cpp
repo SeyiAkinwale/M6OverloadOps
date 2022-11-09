@@ -14,7 +14,7 @@ Weight::Weight()
 }
 
 //Constructor with two arguments
-Weight::Weight(int lbs, int oz):pound(lbs), ounce(oz)
+Weight::Weight(int lbs, double oz):pound(lbs), ounce(oz)
 {
 	fixWeight();
 }
@@ -26,13 +26,13 @@ int Weight::getPounds()
 }
 
 //returns value of ounce
-int Weight::getOunces()
+double Weight::getOunces()
 {
 	return ounce;
 }
 
 //sum of pound variable in ounces and ounce
-int Weight::getWeight()
+double Weight::getWeight()
 {
 	return pound * OZ_IN_LB + ounce;
 }
@@ -61,11 +61,10 @@ void Weight::fixWeight()
 	pound = abs(pound);
 	ounce = abs(ounce);
 
+	//subtract multiples of 16 oz and covert back onto lbs.
 	while (ounce > OZ_IN_LB)
 	{
-		cout << endl << endl << ounce;
 		ounce -= OZ_IN_LB;
-		cout << endl << endl << ounce;
 		pound++;
 	}
 }

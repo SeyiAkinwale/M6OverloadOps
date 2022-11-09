@@ -40,6 +40,7 @@ double Weight::getWeight()
 void Weight::setPounds(int lbs)
 {
 	pound = lbs;
+	fixWeight();
 }
 
 void Weight::setOunces(double oz)

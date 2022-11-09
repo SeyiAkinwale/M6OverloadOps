@@ -56,7 +56,7 @@ void Weight::setWeight(int lbs, double oz)
 	fixWeight();
 }
 
-//Helper fucntion to fix Weight
+//Helper function to fix Weight
 void Weight::fixWeight()
 {	//If they are negative, convert them to positive
 	pound = abs(pound);

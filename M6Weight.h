@@ -6,6 +6,7 @@
 //Weight class declaration
 class Weight {
 private:
+	static int objectCount;
 	int pound;
 	double ounce;
 	//Helper function

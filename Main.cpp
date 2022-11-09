@@ -14,8 +14,8 @@ int main()
 	Weight leftWeight;
 	Weight rightWeight(2, 2);
 	rightWeight.setPounds(10);
-	rightWeight.setOunces(10);
-	rightWeight.setWeight(100,10.5);
+	rightWeight.setOunces(100);
+	//rightWeight.setWeight(100,32);
 	cout << endl << leftWeight.getPounds();
 	cout << " " << leftWeight.getOunces();
 	cout << endl << rightWeight.getPounds();

@@ -16,6 +16,7 @@ Weight::Weight()
 //Constructor with two arguments
 Weight::Weight(int lbs, int oz):pound(lbs), ounce(oz)
 {
+	fixWeight();
 }
 
 // returns value of pound
@@ -44,12 +45,14 @@ void Weight::setPounds(int lbs)
 void Weight::setOunces(double oz)
 {
 	ounce = oz;
+	fixWeight();
 }
 
 void Weight::setWeight(int lbs, double oz)
 {
 	pound = lbs;
 	ounce = oz;
+	fixWeight();
 }
 
 //Helper fucntion to fix Weight
@@ -60,15 +63,9 @@ void Weight::fixWeight()
 
 	while (ounce > OZ_IN_LB)
 	{
-		if ((ounce - OZ_IN_LB) < OZ_IN_LB)
-		{
-			double overage = ounce - OZ_IN_LB;
-			ounce = overage;
-		}
-		else
-		{
-			ounce -=OZ_IN_LB;
-		}
+		cout << endl << endl << ounce;
+		ounce -= OZ_IN_LB;
+		cout << endl << endl << ounce;
 		pound++;
 	}
 }

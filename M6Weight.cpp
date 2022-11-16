@@ -4,6 +4,7 @@
 #include <cmath>
 using namespace std;
 
+int Weight::objectCount = 0;
 const int OZ_IN_LB  = 16;// ounces in a pound
 
 //Default Constructor initializes weight/ounce
@@ -11,12 +12,14 @@ Weight::Weight()
 {
 	pound = 0;
 	ounce = 0; 
+	objectCount++;
 }
 
 //Constructor with two arguments
 Weight::Weight(int lbs, double oz):pound(lbs), ounce(oz)
 {
 	fixWeight();
+	objectCount++;
 }
 
 // returns value of pound
@@ -35,6 +38,7 @@ double Weight::getOunces()
 double Weight::getWeight()
 {
 	return pound * OZ_IN_LB + ounce;
+	//cout << "Number of objects: " << Weight::getObjectCount();
 }
 
 void Weight::setPounds(int lbs)
@@ -68,4 +72,9 @@ void Weight::fixWeight()
 		ounce -= OZ_IN_LB;
 		pound++;
 	}
+}
+
+int Weight::getObjectCount()
+{
+	return objectCount;
 }

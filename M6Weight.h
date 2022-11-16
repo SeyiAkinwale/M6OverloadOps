@@ -22,7 +22,7 @@ public:
 	void setPounds(int);
 	void setOunces(double);
 	void setWeight(int, double);
-
+	static int getObjectCount();
 };
 
 #endif

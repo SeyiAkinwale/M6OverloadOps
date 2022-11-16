@@ -12,8 +12,9 @@ using namespace std;
 int main()
 {
 	Weight leftWeight;
+
 	Weight rightWeight(2, 2);
-	rightWeight.setPounds(10);
+	rightWeight.setPounds(-10);
 	rightWeight.setOunces(100.5);
 	cout << endl << leftWeight.getPounds();
 	cout << " " << leftWeight.getOunces();
@@ -21,6 +22,6 @@ int main()
 	cout << " " << rightWeight.getOunces();
 	cout << endl << rightWeight.getWeight();
 
-
+	cout << endl<< "Number of objects: " << Weight::getObjectCount();
 	return 0;
 }

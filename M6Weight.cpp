@@ -46,6 +46,23 @@ double Weight::getWeight()
 	//cout << "Number of objects: " << Weight::getObjectCount();
 }
 
+Weight Weight::operator+ (const Weight& other) const
+{
+	Weight temp;
+	temp.pound = other.pound + pound;
+	temp.ounce = other.ounce + ounce;
+	temp.fixWeight();
+	return temp;
+}
+
+Weight Weight::operator- (const Weight& other) const
+{
+	Weight temp;
+	temp.pound = other.pound - pound;
+	temp.ounce = other.ounce - ounce;
+	temp.fixWeight();
+	return temp;
+}
 void Weight::setPounds(int lbs)
 {
 	pound = lbs;
@@ -82,4 +99,19 @@ void Weight::fixWeight()
 int Weight::getObjectCount()
 {
 	return objectCount;
+}
+
+//Overloading <<
+ostream& operator<< (ostream& out, const Weight& aWeight)
+{
+	out << aWeight.pound << " lbs " << aWeight.ounce<< "ozs";
+	return out;
+}
+
+istream& operator>> (istream& in, Weight& aWeight)
+{
+	in >> aWeight.pound;
+	cin.ignore();
+	in >> aWeight.ounce;
+	return in;
 }

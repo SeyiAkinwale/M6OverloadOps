@@ -9,19 +9,34 @@
 
 using namespace std;
 
+void testStreamOverload();
+
 int main()
+{
+
+	testStreamOverload();
+	cout << endl<< "Number of objects: " << Weight::getObjectCount();
+	return 0;
+}
+
+void testStreamOverload()
 {
 	Weight leftWeight;
 
-	Weight rightWeight(2, 2);
+	Weight middleWeight(2, 2);
+	
+	cout << "\nEnter a Weight: ";
+	cin >> middleWeight;
+
+	Weight rightWeight(200, 12);
 	rightWeight.setPounds(-10);
 	rightWeight.setOunces(100.5);
+
+	leftWeight = middleWeight - rightWeight;
 	cout << endl << leftWeight.getPounds();
 	cout << " " << leftWeight.getOunces();
 	cout << endl << rightWeight.getPounds();
 	cout << " " << rightWeight.getOunces();
 	cout << endl << rightWeight.getWeight();
-
-	cout << endl<< "Number of objects: " << Weight::getObjectCount();
-	return 0;
+	cout << endl << rightWeight;
 }

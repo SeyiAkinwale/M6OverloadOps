@@ -4,7 +4,7 @@
 #include <cmath>
 using namespace std;
 
-int Weight::objectCount = 0;
+int Weight::objectCount = 0; //Definition and initialization
 const int OZ_IN_LB  = 16;// ounces in a pound
 
 //Default Constructor initializes weight/ounce
@@ -20,6 +20,11 @@ Weight::Weight(int lbs, double oz):pound(lbs), ounce(oz)
 {
 	fixWeight();
 	objectCount++;
+}
+
+Weight::~Weight()
+{
+	objectCount--;
 }
 
 // returns value of pound

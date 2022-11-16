@@ -15,6 +15,7 @@ private:
 public:
 	Weight();
 	Weight(int, double);
+	~Weight();
 
 	int getPounds();
 	double getOunces();

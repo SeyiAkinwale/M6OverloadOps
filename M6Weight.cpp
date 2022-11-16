@@ -5,7 +5,8 @@
 using namespace std;
 
 int Weight::objectCount = 0; //Definition and initialization
-const int OZ_IN_LB  = 16;// ounces in a pound
+const int OZ_IN_LB  = 16; // ounces in a pound
+const double KG_IN_OZ = .0283495; //kilos in an ounce
 
 //Default Constructor initializes weight/ounce
 Weight::Weight()
@@ -114,4 +115,9 @@ istream& operator>> (istream& in, Weight& aWeight)
 	cin.ignore();
 	in >> aWeight.ounce;
 	return in;
+}
+
+Weight::operator double() const
+{
+	return (pound * OZ_IN_LB + ounce) * KG_IN_OZ;
 }

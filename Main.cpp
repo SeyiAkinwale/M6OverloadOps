@@ -9,16 +9,23 @@
 
 using namespace std;
 
+void testTypeOverload();
 void testStreamOverload();
 
 int main()
 {
 
-	testStreamOverload();
+	testTypeOverload();
 	cout << endl<< "Number of objects: " << Weight::getObjectCount();
 	return 0;
 }
 
+void testTypeOverload()
+{
+	Weight middleWeight(2, 3.2);
+	double convertedWeight = middleWeight;
+	cout << endl << convertedWeight;
+}
 void testStreamOverload()
 {
 	Weight leftWeight;

@@ -35,6 +35,9 @@ class Weight {
 		//Overloaded operators
 		Weight operator+ (const Weight&) const;
 		Weight operator- (const Weight&) const;
+
+		//Overload (double) --> covert user-defined to native data type
+		operator double() const;
 };
 
 #endif

@@ -39,6 +39,10 @@ class Weight {
 		Weight operator- (const Weight&) const;
 		bool operator> (const Weight&);
 		bool operator< (const Weight&);
+		bool operator>= (const Weight&);
+		bool operator<= (const Weight&);
+		bool operator== (const Weight&);
+		bool operator!= (const Weight&);
 
 		//Overload (double) --> covert user-defined to native data type
 		operator double() const;

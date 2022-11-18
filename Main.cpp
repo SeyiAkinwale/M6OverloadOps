@@ -9,13 +9,14 @@
 
 using namespace std;
 
+//void testComparisonOverload()
 void testTypeOverload();
 void testStreamOverload();
 
 int main()
 {
 
-	testTypeOverload();
+	//testComparisonOverload();
 	cout << endl<< "Number of objects: " << Weight::getObjectCount();
 	return 0;
 }

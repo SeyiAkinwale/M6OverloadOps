@@ -95,6 +95,7 @@ bool Weight::operator> (const Weight& aWeight)
 	}
 	return status;
 }
+
 bool Weight::operator< (const Weight& aWeight)
 {
 	bool status;
@@ -103,6 +104,70 @@ bool Weight::operator< (const Weight& aWeight)
 		status = true;
 	}
 	else if ((pound < aWeight.pound) && (ounce < aWeight.ounce))
+	{
+		status = true;
+	}
+	else
+	{
+		status;
+	}
+	return status;
+}
+
+bool Weight::operator>= (const Weight& aWeight)
+{
+	bool status;
+	if (pound >= aWeight.pound)
+	{
+		status = true;
+	}
+	else if ((pound >= aWeight.pound) && (ounce >= aWeight.ounce))
+	{
+		status = true;
+	}
+	else
+	{
+		status;
+	}
+	return status;
+}
+
+bool Weight::operator<= (const Weight& aWeight)
+{
+	bool status;
+	if (pound <= aWeight.pound)
+	{
+		status = true;
+	}
+	else if ((pound <= aWeight.pound) && (ounce <= aWeight.ounce))
+	{
+		status = true;
+	}
+	else
+	{
+		status;
+	}
+	return status;
+}
+
+bool Weight::operator== (const Weight& aWeight)
+{
+	bool status;
+	if ((pound == aWeight.pound) && (ounce <= aWeight.ounce))
+	{
+		status = true;
+	}
+	else
+	{
+		status;
+	}
+	return status;
+}
+
+bool Weight::operator!= (const Weight& aWeight)
+{
+	bool status;
+	if ((pound != aWeight.pound) && (ounce != aWeight.ounce))
 	{
 		status = true;
 	}

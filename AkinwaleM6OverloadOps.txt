@@ -1,3 +1,48 @@
+//Specification for the Weight class  
+
+#ifndef M6WEIGHT_H
+#define M6WEIGHT_H
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+//Weight class declaration
+class Weight {
+	friend ostream& operator<< (ostream&, const Weight&);
+	friend istream& operator>> (istream&, Weight&);
+
+	private:
+		static int objectCount;
+		int pound;
+		double ounce;
+		//Helper function
+		void fixWeight();
+
+	public:
+		Weight();
+		Weight(int, double);
+		Weight(double);
+		~Weight(); //destructor
+
+		int getPounds();
+		double getOunces();
+		double getWeight(); //total weight in ounces
+		void setPounds(int);
+		void setOunces(double);
+		void setWeight(int, double);
+		static int getObjectCount();
+
+		//Overloaded operators
+		Weight operator+ (const Weight&) const;
+		Weight operator- (const Weight&) const;
+
+		//Overload (double) --> covert user-defined to native data type
+		operator double() const;
+};
+
+#endif
+
 //Implementation file for the M6Weight class
 #include "M6Weight.h"
 #include <iostream>
@@ -27,13 +72,6 @@ Weight::Weight(double totOunces)
 {
 	pound = 0; ounce = totOunces;
 	fixWeight();
-}
-
-Weight::Weight(const Weight& aWeight)
-{
-	pound = aWeight.pound;
-	ounce = aWeight.ounce;
-	
 }
 
 Weight::~Weight()
@@ -76,41 +114,6 @@ Weight Weight::operator- (const Weight& other) const
 	temp.ounce = other.ounce - ounce;
 	temp.fixWeight();
 	return temp;
-}
-
-bool Weight::operator> (const Weight& aWeight)
-{
-	bool status;
-	if (pound > aWeight.pound)
-	{
-		status = true;
-	}
-	else if ((pound > aWeight.pound) && (ounce > aWeight.ounce))
-	{
-		status = true;
-	}
-	else
-	{
-		status;
-	}
-	return status;
-}
-bool Weight::operator< (const Weight& aWeight)
-{
-	bool status;
-	if (pound < aWeight.pound)
-	{
-		status = true;
-	}
-	else if ((pound < aWeight.pound) && (ounce < aWeight.ounce))
-	{
-		status = true;
-	}
-	else
-	{
-		status;
-	}
-	return status;
 }
 void Weight::setPounds(int lbs)
 {
@@ -169,3 +172,57 @@ Weight::operator double() const
 {
 	return (pound * OZ_IN_LB + ounce) * KG_IN_OZ;
 }
+
+
+//Author: Seyi Akinwale
+//Purpose: Using a class to represent overload operators
+//Oct 14, 2022
+
+#include <iostream>
+#include <string>
+#include <cmath>
+#include "M6Weight.h"
+
+using namespace std;
+
+void testTypeOverload();
+void testStreamOverload();
+
+int main()
+{
+
+	testTypeOverload();
+	cout << endl<< "Number of objects: " << Weight::getObjectCount();
+	return 0;
+}
+
+void testTypeOverload()
+{
+	Weight middleWeight(4, 6.4);
+	double convertedWeight = middleWeight;
+	cout << endl << convertedWeight;
+	Weight funWeight = convertedWeight;
+	cout << "Fun Weight" << funWeight;
+}
+void testStreamOverload()
+{
+	Weight leftWeight;
+
+	Weight middleWeight(2, 2);
+	
+	cout << "\nEnter a Weight: ";
+	cin >> middleWeight;
+
+	Weight rightWeight(200, 12);
+	rightWeight.setPounds(-10);
+	rightWeight.setOunces(100.5);
+
+	leftWeight = middleWeight - rightWeight;
+	cout << endl << leftWeight.getPounds();
+	cout << " " << leftWeight.getOunces();
+	cout << endl << rightWeight.getPounds();
+	cout << " " << rightWeight.getOunces();
+	cout << endl << rightWeight.getWeight();
+	cout << endl << rightWeight;
+}
+

@@ -22,6 +22,8 @@ class Weight {
 	public:
 		Weight();
 		Weight(int, double);
+		Weight(double);
+		Weight(const Weight&);
 		~Weight(); //destructor
 
 		int getPounds();
@@ -35,6 +37,8 @@ class Weight {
 		//Overloaded operators
 		Weight operator+ (const Weight&) const;
 		Weight operator- (const Weight&) const;
+		bool operator> (const Weight&);
+		bool operator< (const Weight&);
 
 		//Overload (double) --> covert user-defined to native data type
 		operator double() const;

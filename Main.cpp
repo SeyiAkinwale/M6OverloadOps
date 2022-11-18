@@ -22,9 +22,11 @@ int main()
 
 void testTypeOverload()
 {
-	Weight middleWeight(2, 3.2);
+	Weight middleWeight(4, 6.4);
 	double convertedWeight = middleWeight;
 	cout << endl << convertedWeight;
+	Weight funWeight = convertedWeight;
+	cout << "Fun Weight" << funWeight;
 }
 void testStreamOverload()
 {
